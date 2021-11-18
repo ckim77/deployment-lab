@@ -24,8 +24,13 @@ app.get('/', function(req, res) {
 
 app.use("/", express.static(path.join(__dirname, "../index.html")))
 
-
 app.use("/css", express.static(path.join(__dirname, "../styles.css")))
+
+try {
+    nonExistentFunction();
+  } catch (error) {
+    console.error(error);
+  }
 
 app.use(rollbar.errorHandler())
 
